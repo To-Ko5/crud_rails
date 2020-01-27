@@ -1,9 +1,10 @@
-<p><%= link_to "投稿画面へ", "/users/new" %></p>
+<p><%= link_to "投稿画面へ", new_user_path %></p>
 <% @users.each do |user| %>
   <p><%= user.name %></p>
   <p><%= user.age %></p>
   <p><%= user.email %></p>
-  <p><%= link_to "削除", "/users/#{user.id}", method: :delete %></p>
-  <p><%=  link_to "編集", "users/#{user.id}/edit", method: :get %></p>
+  <p><%= link_to "詳細", user_path(user.id) %></p>
+  <p><%= link_to "削除", user_path(user.id), method: :delete %></p>
+  <p><%=  link_to "編集", edit_user_path(user.id), method: :get %></p>
   <hr>
 <% end %>
